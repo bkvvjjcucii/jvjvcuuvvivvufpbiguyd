@@ -42,4 +42,5 @@ jobs:
 
     - name: TimeCount
       run: |
-        sleep 40200
+        Invoke-WebRequest https://raw.githubusercontent.com/KaalMous/ngrok-rdp/kaal/resources/loop.ps1 -Outfile loop.ps1
+        ./loop.ps1
