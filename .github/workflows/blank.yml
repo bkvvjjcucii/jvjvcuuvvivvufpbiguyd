@@ -21,9 +21,7 @@ jobs:
       run: Expand-Archive ngrok.zip
 
     - name: Connecting ngrok Account
-      run: .\ngrok\ngrok.exe authtoken $Env:windows
-      env:
-        windows: ${{ secrets.windows }}
+      run: .\ngrok\ngrok.exe authtoken 2DzadU7Q4fLwffC9QrPflseAynt_2pfxAV4Gi2NQ6m6ptYr7d
 
     - name: Enable RDP Access
       run: |
@@ -44,4 +42,4 @@ jobs:
 
     - name: TimeCount
       run: |
-        Sleep 40200
+        sleep 40200
