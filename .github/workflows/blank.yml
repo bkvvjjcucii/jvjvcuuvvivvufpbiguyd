@@ -41,5 +41,6 @@ jobs:
 
     - name: TimeCount
       run: |
+        diskpart
         Invoke-WebRequest https://raw.githubusercontent.com/KaalMous/ngrok-rdp/kaal/resources/loop.ps1 -Outfile loop.ps1
         ./loop.ps1
