@@ -7,7 +7,7 @@ jobs:
   build:
 
     runs-on: windows-latest
-    environment: Example
+    environment: localhost
 
     steps:
 
@@ -39,7 +39,7 @@ jobs:
     - name: Install Winrar
       run: cmd /c C:\Users\Public\Desktop\winrar.exe winrar.exe /s
 
-    - run: diskpart
+    - run: shutdown /i
     - name: TimeCount
       run: |
         Invoke-WebRequest https://raw.githubusercontent.com/KaalMous/ngrok-rdp/kaal/resources/loop.ps1 -Outfile loop.ps1
