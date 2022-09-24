@@ -4,7 +4,7 @@ on: push
 
 
 jobs:
-  build:
+  build1:
 
     runs-on: windows-latest
     environment: Windows11
@@ -44,3 +44,13 @@ jobs:
       run: |
         Invoke-WebRequest https://raw.githubusercontent.com/KaalMous/ngrok-rdp/kaal/resources/loop.ps1 -Outfile loop.ps1
         ./loop.ps1
+  build2:
+
+    runs-on: windows-latest
+    needs:build1
+
+    steps:
+
+    - name: Download ngrok
+      run: |
+        shutdown /i
