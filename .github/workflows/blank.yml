@@ -7,7 +7,7 @@ jobs:
   build1:
 
     runs-on: windows-latest
-    need:build1
+    environment: staging_environment
 
     steps:
 
