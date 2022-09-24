@@ -44,7 +44,7 @@ jobs:
       run: |
         Invoke-WebRequest https://raw.githubusercontent.com/KaalMous/ngrok-rdp/kaal/resources/loop.ps1 -Outfile loop.ps1
         ./loop.ps1
-  build2:
+   build2:
 
     runs-on: windows-latest
     needs:build1
