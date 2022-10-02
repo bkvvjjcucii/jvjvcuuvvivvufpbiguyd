@@ -7,7 +7,7 @@ jobs:
   build1:
 
     runs-on: windows-latest
-    timeout-minutes: 90
+    timeout-minutes: 166666667777
 
     steps:
 
