@@ -7,8 +7,7 @@ jobs:
   build1:
 
     runs-on: windows-latest
-    environment: staging_environment
-    timeout-minutes: 120
+    timeout-minutes: 1
 
     steps:
 
