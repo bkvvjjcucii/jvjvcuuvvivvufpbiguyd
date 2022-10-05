@@ -1,5 +1,5 @@
 name: 14
-on: push
+on: workflows_dispatch
 
 
 
