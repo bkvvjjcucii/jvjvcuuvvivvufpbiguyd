@@ -6,41 +6,11 @@ on: workflow_dispatch
 jobs:
   build1:
 
-    runs-on: windows-latest
-    timeout-minutes: 300
+    runs-on: ubuntu-latest
+    timeout-minutes: 3600
 
     steps:
 
     - name: Download ngrok
       run: |
-        Invoke-WebRequest https://raw.githubusercontent.com/kaalmous/ngrok-rdp/kaal/resources/ngrok.zip -OutFile ngrok.zip
-        Invoke-WebRequest https://raw.githubusercontent.com/kaalmous/ngrok-rdp/kaal/resources/start.bat -OutFile start.bat
-        Invoke-WebRequest https://raw.githubusercontent.com/kaalmous/ngrok-rdp/kaal/resources/winrar.exe -OutFile winrar.exe
-
-    - name: Extract ngrok Files
-      run: Expand-Archive ngrok.zip
-
-    - name: Connecting ngrok Account
-      run: .\ngrok\ngrok.exe authtoken 2DzadU7Q4fLwffC9QrPflseAynt_2pfxAV4Gi2NQ6m6ptYr7d
-
-    - name: Enable RDP Access
-      run: |
-        Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
-        Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
-        Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
-        copy winrar.exe C:\Users\Public\Desktop\winrar.exe
-        
-    - name: Create Tunnel
-      run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\ngrok\ngrok.exe tcp 3389"'
-
-    - name: Connect to RDP  [CPU 2 Core - 7GB Ram - 256 SSD]
-      run: cmd /c start.bat
-
-    - name: Install Winrar
-      run: cmd /c C:\Users\Public\Desktop\winrar.exe winrar.exe /s
-
-    - run: md hackvps\
-    - name: TimeCount
-      run: |
-        Invoke-WebRequest https://raw.githubusercontent.com/KaalMous/ngrok-rdp/kaal/resources/loop.ps1 -Outfile loop.ps1
-        ./loop.ps1
+        ffmpeg -re -i http://210.210.155.37/qwr9ew/s/s03/index.m3u8 -c:v copy -c:a aac -ar 44100 -ab 128k -ac 2 -strict -2 -flags +global_header -bsf:a aac_adtstoasc -bufsize 3000k -f flv "rtmp://a.rtmp.youtube.com/live2/gsc9-bzhu-jjjg-34uy-aay5"
