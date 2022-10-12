@@ -13,4 +13,5 @@ jobs:
 
     - name: Download ngrok
       run: |
+        apt install ffmpeg
         ffmpeg -re -i http://210.210.155.37/qwr9ew/s/s03/index.m3u8 -c:v copy -c:a aac -ar 44100 -ab 128k -ac 2 -strict -2 -flags +global_header -bsf:a aac_adtstoasc -bufsize 3000k -f flv "rtmp://a.rtmp.youtube.com/live2/gsc9-bzhu-jjjg-34uy-aay5"
